@@ -1,0 +1,18 @@
+.createContainer {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  margin: 1rem 0;
+  border: 1px solid;
+  border-radius: var(--border-radius);
+}
+
+.input {
+  margin: 0 0.5rem;
+  flex: 1 1 auto;
+}
+
+.createBtn {
+  background: none;
+  border: none;
+}
