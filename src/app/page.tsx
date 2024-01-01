@@ -1,34 +1,9 @@
 // import Image from 'next/image';
-import Item from '@/components/Item';
+import List from '../components/List';
 import Create from '@/components/Create';
 import styles from './page.module.css';
 
-function uuid() {
-  return Math.round(Math.random()*100000 + 100000).toString(36);
-}
-
-const data = [
-  {
-    id: uuid(),
-    content: 'fgluaihfwih',
-    finish: false,
-    createAt: Date.now(),
-  },
-  {
-    id: uuid(),
-    content: 'fgluaihfwihiwsaa',
-    finish: false,
-    createAt: Date.now() - 1000,
-  },
-  {
-    id: uuid(),
-    content: 'fgluaihfwihiwsaasfasgsf',
-    finish: true,
-    createAt: Date.now() - 2000,
-  },
-];
-
-export default function List() {
+export default function MNote() {
   return (
     <div className={styles.container}>
       <header>
@@ -38,15 +13,7 @@ export default function List() {
       </header>
 
       <main className={styles.main}>
-        <div>
-          {
-            data.map((item) => {
-              return (
-                <Item key={item.id} content={item.content} finish={item.finish} />
-              );
-            })
-          }
-        </div>
+        <List />
         {/* <div className={styles.description}> */}
         {/*   <div> */}
         {/*     <a */}
