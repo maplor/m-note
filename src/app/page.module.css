@@ -3,32 +3,43 @@
   min-height: 100vh;
 }
 
+.header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  padding: 1rem 1rem 1.5rem 1rem;
+
+  background: linear-gradient(
+    to top,
+    transparent 0%,
+    rgb(var(--background-start-rgb)) 36%
+  );
+}
+
 .logo {
   text-align: center;
 }
 
 .main {
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* justify-content: space-between; */
-  /* align-items: center; */
-  /* padding: 6rem; */
-
+  padding-top: 2.5rem;
+  padding-bottom: 5rem;
 }
 
 .footer {
   position: fixed;
   left: 0;
   bottom: 0;
+  z-index: 1;
   width: 100%;
   padding: 2rem 1rem 1rem 1rem;
 
   background: linear-gradient(
     to bottom,
     transparent 0%,
-    rgb(var(--background-end-rgb)) 40%
+    rgb(var(--background-end-rgb)) 36%
   );
-  z-index: 1;
 }
 
 /* .description { */
