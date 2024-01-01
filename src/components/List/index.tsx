@@ -70,7 +70,7 @@ export default function Item(props: ItemProps) {
     return (
       <div key={item.id} className={styles.item}>
         <Checkbox className={styles.check} checked={item.finish} onChange={(v) => handleSetFinish(item.id, v)} />
-        <span className={styles.content}>{item.content}</span>
+        <span className={`${styles.content} ${item.finish ? styles.contentFinish : ''}`}>{item.content}</span>
         <Button className={styles.delBtn} fill="none" size="mini" onClick={() => handleDelete(item.id)}>
           <CloseOutline fontSize="1rem" />
         </Button>

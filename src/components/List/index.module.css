@@ -23,6 +23,10 @@
   font-size: 1rem;
 }
 
+.contentFinish {
+  text-decoration: line-through;
+}
+
 .delBtn:global(.adm-button) {
   height: 1rem;
   padding: 0 0.375rem;
