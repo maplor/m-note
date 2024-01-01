@@ -12,7 +12,11 @@
   flex: 1 1 auto;
 }
 
-.createBtn {
-  background: none;
-  border: none;
+.input :global(input) {
+  font-size: 1rem;
+}
+
+.createBtn:global(.adm-button) {
+  height: 1rem;
+  padding: 0 0.375rem;
 }

@@ -1,28 +1,26 @@
 'use client';
 
 import { useState } from 'react';
-import { Input, DotLoading } from 'antd-mobile';
+import { Input, DotLoading, Button } from 'antd-mobile';
 import { CheckOutline } from 'antd-mobile-icons';
-import styles from './index.module.css';
 import { useRequest } from 'ahooks';
 import store from '@/store';
+import styles from './index.module.css';
 
 function uuid() {
-  return Math.round(Math.random()*100000 + 100000).toString(36);
+  return Math.round(Math.random() * 100000 + 100000).toString(36);
 }
 
-interface CreateProps {
-
-}
-
-export default function Create(props: CreateProps) {
+export default function Create() {
   const [newContent, setNewContent] = useState('');
   const { loading, run: createItem } = useRequest(store.add, {
     manual: true,
-    onSuccess: (result) => {
-      setNewContent('');
-
-      document.dispatchEvent(new CustomEvent('data-refresh'));
+    onSuccess: (res) => {
+      if (res && res.success) {
+        setNewContent('');
+        // 通知更新列表，这里使用简单的事件通信，复杂项目中应使用状态管理库
+        document.dispatchEvent(new CustomEvent('data-refresh'));
+      }
     },
   });
 
@@ -41,10 +39,10 @@ export default function Create(props: CreateProps) {
 
   return (
     <div className={styles.createContainer}>
-      <Input className={styles.input} placeholder="Take a shorthand ~" value={newContent} onChange={setNewContent} />
-      <button className={styles.createBtn} onClick={handleClick} disabled={loading}>
-        { loading ? <DotLoading /> : <CheckOutline /> }
-      </button>
+      <Input className={styles.input} placeholder="快速记一笔" value={newContent} onChange={setNewContent} onEnterPress={handleClick} />
+      <Button className={styles.createBtn} fill="none" size="mini" onClick={handleClick} disabled={loading}>
+        { loading ? <DotLoading /> : <CheckOutline fontSize="1rem" /> }
+      </Button>
     </div>
   );
 }
