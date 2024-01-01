@@ -1,10 +1,18 @@
+.empty {
+  background: transparent;
+}
+
 .item {
   display: flex;
   align-items: center;
   padding: 0.5rem;
   margin: 1rem 0;
-  border: 1px solid;
+  border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
+}
+
+.check :global(.adm-checkbox-icon) {
+  border-color: var(--border-color);
 }
 
 .content {
@@ -12,8 +20,10 @@
   flex: 1 1 auto;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-size: 1rem;
 }
 
-.delBtn {
-  padding: 6px;
+.delBtn:global(.adm-button) {
+  height: 1rem;
+  padding: 0 0.375rem;
 }
