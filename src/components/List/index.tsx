@@ -7,12 +7,7 @@ import { useRequest } from 'ahooks';
 import store from '@/store';
 import { useEffect } from 'react';
 
-interface ItemProps {
-  // finish: boolean;
-  // content: string;
-}
-
-export default function Item(props: ItemProps) {
+export default function Item() {
   const { loading, data, run: getAll } = useRequest(store.getAll);
 
   useEffect(() => {
