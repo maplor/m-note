@@ -39,7 +39,14 @@ export default function Create() {
 
   return (
     <div className={styles.createContainer}>
-      <Input className={styles.input} placeholder="快速记一笔" value={newContent} onChange={setNewContent} onEnterPress={handleClick} />
+      <Input
+        className={styles.input}
+        placeholder="快速记一笔"
+        maxLength={1000}
+        value={newContent}
+        onChange={setNewContent}
+        onEnterPress={handleClick}
+      />
       <Button className={styles.createBtn} fill="none" size="mini" onClick={handleClick} disabled={loading}>
         { loading ? <DotLoading /> : <CheckOutline fontSize="1rem" /> }
       </Button>
